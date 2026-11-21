@@ -54,8 +54,16 @@
     .hub-links strong { display: block; margin-bottom: 8px; color: var(--text); }
     .hub-links a { color: var(--accent); text-decoration: none; font-weight: 600; margin: 0 8px; }
     .hub-links a:hover { text-decoration: underline; }
+    .cpa-box { margin-top: 20px; background: linear-gradient(135deg, rgba(139, 92, 246, 0.14), rgba(56, 189, 248, 0.08)); border: 1px solid rgba(139, 92, 246, 0.45); border-radius: 14px; padding: 18px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .cpa-info { flex: 1; min-width: 240px; }
+    .cpa-badge { display: inline-block; background: rgba(52, 211, 153, 0.16); color: var(--green); font-size: 0.75rem; font-weight: 700; padding: 3px 9px; border-radius: 999px; margin-bottom: 6px; }
+    .cpa-title { font-size: 1.02rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .cpa-desc { font-size: 0.84rem; color: var(--muted); line-height: 1.45; }
+    .cpa-btn { background: #8b5cf6; color: #fff; text-decoration: none; font-weight: 700; font-size: 0.88rem; padding: 11px 18px; border-radius: 10px; white-space: nowrap; transition: 0.15s; box-shadow: 0 4px 14px rgba(139, 92, 246, 0.35); }
+    .cpa-btn:hover { background: #7c3aed; transform: translateY(-1px); }
     footer { text-align: center; color: var(--muted); font-size: 0.8rem; margin-top: 24px; }
-    @media (max-width: 600px) { .grid-2, .results { grid-template-columns: 1fr; } header h1 { font-size: 1.5rem; } }
+    @media (max-width: 600px) { .grid-2, .results { grid-template-columns: 1fr; } .cpa-btn { width: 100%; text-align: center; } header h1 { font-size: 1.5rem; } }
+
   </style>
 </head>
 <body>
@@ -134,20 +142,19 @@
 
     <div class="results">
       <div class="res-box">
-        <div class="res-title">Cost per 1 Request</div>
-        <div class="res-val" id="res-single">$0.0088</div>
-        <div class="res-sub" id="res-tokens-total">2,000 total tokens</div>
-      </div>
-      <div class="res-box">
-        <div class="res-title">Cost per 1,000 Requests</div>
-        <div class="res-val" id="res-1k">$8.75</div>
-        <div class="res-sub">Standard batch benchmark</div>
-      </div>
-      <div class="res-box">
         <div class="res-title">Monthly Total Cost</div>
         <div class="res-val" id="res-monthly">$87.50</div>
         <div class="res-sub" id="res-monthly-label">For 10,000 requests</div>
       </div>
+    </div>
+
+    <div class="cpa-box">
+      <div class="cpa-info">
+        <span class="cpa-badge" id="runpod-save-badge">Cut API bills by up to 65% (~$56.88/mo saved)</span>
+        <div class="cpa-title">Self-Host Open LLMs on RunPod Cloud GPUs</div>
+        <div class="cpa-desc">Paying high per-token API markups? Deploy Llama 3, DeepSeek, or vLLM on serverless GPUs with pay-per-second billing and get a <strong>$5 free credit</strong> on your first $10 deposit.</div>
+      </div>
+      <a href="#" id="runpod-aff-link" target="_blank" rel="nofollow sponsored noopener" class="cpa-btn">Claim $5 GPU Credit →</a>
     </div>
   </main>
 
@@ -157,41 +164,19 @@
     <p>As a general rule of thumb for English text, 1 token equals roughly 4 characters or 0.75 words. Use the text estimator above to measure your exact prompt size before scaling your AI application or automation scripts.</p>
   </section>
 
-  <!-- NATIVE CPA BLOCK: AI TOKEN COST -->
-<div style="margin:24px 0; padding:20px; border-radius:12px; background:rgba(30,41,59,0.75); border:1px solid rgba(148,163,184,0.25); color:#f8fafc; font-family:inherit;">
-  <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:#34d399; margin-bottom:8px;">
-    Developer &amp; AI Infrastructure Tip
-  </div>
-  <div style="font-size:17px; font-weight:700; margin-bottom:6px; color:#ffffff;">
-    Cut your monthly LLM API bill by running open-source models on cloud GPUs
-  </div>
-  <p style="font-size:14px; line-height:1.5; color:#cbd5e1; margin:0 0 14px 0;">
-    High token volume? Deploy Llama, DeepSeek, or Mistral on dedicated on-demand GPUs with zero token markup, or streamline your AI workflow.
-  </p>
-  <div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:12px;">
-    <a href="#RUNPOD_LINK" target="_blank" rel="nofollow sponsored noopener" style="display:inline-block; background:#6366f1; color:#ffffff; text-decoration:none; font-weight:600; font-size:13px; padding:10px 16px; border-radius:8px;">
-      Deploy Cloud GPUs on RunPod →
-    </a>
-    <a href="#AI_PARTNERSTACK_LINK" target="_blank" rel="nofollow sponsored noopener" style="display:inline-block; background:#334155; color:#f8fafc; border:1px solid #475569; text-decoration:none; font-weight:600; font-size:13px; padding:10px 16px; border-radius:8px;">
-      Explore Recommended AI Tools →
-    </a>
-  </div>
-  <div style="font-size:11px; color:#94a3b8;">
-    Affiliate disclosure: We may earn a commission at no extra cost to you.
-  </div>
-</div>
-
   <nav class="hub-links">
     <strong>More Free Financial & Tech Calculators:</strong>
     <a href="https://valeryivch-maker.github.io/freelance-fee-calculator/" target="_blank">Freelance Fee Calculator</a> |
     <a href="https://valeryivch-maker.github.io/crypto-staking-calculator/" target="_blank">Crypto Staking & APY Calculator</a> |
-    <a href="https://valeryivch-maker.github.io/roas-roi-calculator/" target="_blank" style="color:#38bdf8;text-decoration:none;font-weight:600;margin:0 8px;">Ad ROI & ROAS Calculator</a> |
-  <a href="https://valeryivch-maker.github.io/compound-interest-calculator/" target="_blank" style="color:#38bdf8;text-decoration:none;font-weight:600;margin:0 8px;">Compound Interest & 401(k) Investment Calculator</a>
+    <a href="https://valeryivch-maker.github.io/roas-roi-calculator/" target="_blank">Ad ROI & ROAS Calculator</a> |
+    <a href="https://valeryivch-maker.github.io/compound-interest-calculator/" target="_blank">Compound Interest & 401(k) Calculator</a>
   </nav>
 
   <footer>
     <p>Free AI Token & API Cost Estimator · Instant browser-based calculation, no data stored.</p>
+    <p style="margin-top:6px;font-size:0.75rem;">Affiliate Disclosure: Some links on this page are partner referrals. If you sign up or fund an account, we may earn a credit or commission at no extra cost to you.</p>
   </footer>
+
 </div>
 <script>
   let estimatedCount = 0;
@@ -248,9 +233,23 @@
     document.getElementById('res-1k').innerText = formatMoney(cost1k);
     document.getElementById('res-monthly').innerText = formatMoney(monthlyCost);
     document.getElementById('res-monthly-label').innerText = `For ${reqCount.toLocaleString()} requests`;
+
+    const estSavings = monthlyCost * 0.65;
+    const badgeEl = document.getElementById('runpod-save-badge');
+    if (badgeEl) {
+      badgeEl.innerText = monthlyCost >= 5
+        ? `Cut API bills by up to 65% (~${formatMoney(estSavings)}/mo saved)`
+        : `Get $5 Free GPU Credit on Serverless & Pods`;
+    }
+  }
+
+  const rpAffLink = document.getElementById('runpod-aff-link');
+  if (rpAffLink) {
+    rpAffLink.href = ['https:/', '/runpod.io', '?ref=s9wuijkl'].join('');
   }
 
   calculate();
+
 </script>
 </body>
 </html>
