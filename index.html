@@ -69,9 +69,13 @@
 <body>
 <div class="container">
   <header>
+    <div style="display:inline-flex; align-items:center; gap:6px; background:rgba(56,189,248,0.12); color:#38bdf8; border:1px solid rgba(56,189,248,0.35); font-size:0.78rem; font-weight:700; padding:4px 12px; border-radius:999px; margin-bottom:12px;">
+      <span>&#9679;</span> Updated Nov 2026 &bull; Real-time Formula
+    </div>
     <h1>AI Token & <span>LLM API Cost</span> Calculator</h1>
     <p>Estimate prompt tokens from text and calculate exact API expenses across leading AI models.</p>
   </header>
+
 
   <div class="ad-slot">Advertisement Space (Google AdSense Ready)</div>
 
@@ -158,8 +162,16 @@
       </div>
     </div>
 
+    <div style="margin-top:16px; background:rgba(52,211,153,0.08); border:1px solid rgba(52,211,153,0.35); border-radius:12px; padding:14px 16px; display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
+      <div style="font-size:0.86rem; color:#e2e8f0;">
+        <strong style="display:block; font-size:0.74rem; text-transform:uppercase; letter-spacing:0.04em; color:#34d399; margin-bottom:2px;">Next Logical Step &rarr;</strong>
+        Factor <strong id="next-step-cost" style="color:#34d399;">$87.50</strong>/mo AI expense into your SaaS or Ad campaign net ROI:
+      </div>
+      <a href="#" id="next-step-link" target="_blank" rel="noopener" style="background:#34d399; color:#0b1120; text-decoration:none; font-weight:700; font-size:0.84rem; padding:9px 14px; border-radius:8px; white-space:nowrap;">Calculate Net ROI &rarr;</a>
+    </div>
 
     <div class="cpa-box">
+
       <div class="cpa-info">
         <span class="cpa-badge" id="runpod-save-badge">Cut API bills by up to 65% (~$56.88/mo saved)</span>
         <div class="cpa-title">Self-Host Open LLMs on RunPod Cloud GPUs</div>
@@ -252,6 +264,15 @@
         ? `Cut API bills by up to 65% (~${formatMoney(estSavings)}/mo saved)`
         : `Get $5 Free GPU Credit on Serverless & Pods`;
     }
+
+    const nextCostEl = document.getElementById('next-step-cost');
+    const nextLinkEl = document.getElementById('next-step-link');
+    if (nextCostEl && nextLinkEl) {
+      const cleanSpend = Math.max(50, Math.round(monthlyCost));
+      nextCostEl.innerText = formatMoney(monthlyCost);
+      const roasHost = ['https:/', '/valeryivch-maker', '.github.io', '/roas-roi-calculator/'].join('');
+      nextLinkEl.href = roasHost + '?spend=' + cleanSpend + '&src=ai_calc';
+    }
   }
 
   const rpAffLink = document.getElementById('runpod-aff-link');
@@ -259,9 +280,19 @@
     rpAffLink.href = ['https:/', '/runpod.io', '?ref=s9wuijkl'].join('');
   }
 
-  calculate();
+  (function initFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const pIn = params.get('in');
+    const pOut = params.get('out');
+    const pReq = params.get('req');
+    if (pIn && !isNaN(parseFloat(pIn))) document.getElementById('in-tokens').value = parseFloat(pIn);
+    if (pOut && !isNaN(parseFloat(pOut))) document.getElementById('out-tokens').value = parseFloat(pOut);
+    if (pReq && !isNaN(parseFloat(pReq))) document.getElementById('req-count').value = parseFloat(pReq);
+    calculate();
+  })();
 
 </script>
+
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c1d700a5fdf540fa94f43b52a8651a2f"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
