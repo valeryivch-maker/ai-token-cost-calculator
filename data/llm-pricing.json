@@ -1,0 +1,59 @@
+{
+  "source": "AI Token & LLM API Cost Calculator",
+  "tool_url": "https://github.io",
+  "updated": "2026-11-26",
+  "currency": "USD",
+  "unit": "per_1m_tokens",
+  "license": "CC-BY-4.0",
+  "citation_hint": "Smart Finance & Tech Calculators, https://github.io",
+  "models": [
+    {
+      "id": "gpt-4o",
+      "provider": "OpenAI",
+      "name": "GPT-4o",
+      "input_per_1m": 2.50,
+      "output_per_1m": 10.00,
+      "context_window": 128000
+    },
+    {
+      "id": "gpt-4o-mini",
+      "provider": "OpenAI",
+      "name": "GPT-4o mini",
+      "input_per_1m": 0.15,
+      "output_per_1m": 0.60,
+      "context_window": 128000
+    },
+    {
+      "id": "claude-3-5-sonnet",
+      "provider": "Anthropic",
+      "name": "Claude 3.5 Sonnet",
+      "input_per_1m": 3.00,
+      "output_per_1m": 15.00,
+      "context_window": 200000
+    },
+    {
+      "id": "claude-3-5-haiku",
+      "provider": "Anthropic",
+      "name": "Claude 3.5 Haiku",
+      "input_per_1m": 0.80,
+      "output_per_1m": 4.00,
+      "context_window": 200000
+    },
+    {
+      "id": "gemini-1-5-pro",
+      "provider": "Google",
+      "name": "Gemini 1.5 Pro",
+      "input_per_1m": 1.25,
+      "output_per_1m": 5.00,
+      "context_window": 2000000
+    },
+    {
+      "id": "deepseek-v3",
+      "provider": "DeepSeek",
+      "name": "DeepSeek V3",
+      "input_per_1m": 0.27,
+      "output_per_1m": 1.10,
+      "context_window": 64000
+    }
+  ]
+}
