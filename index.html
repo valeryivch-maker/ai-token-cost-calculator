@@ -62,7 +62,13 @@
     .cpa-btn { background: #8b5cf6; color: #fff; text-decoration: none; font-weight: 700; font-size: 0.88rem; padding: 11px 18px; border-radius: 10px; white-space: nowrap; transition: 0.15s; box-shadow: 0 4px 14px rgba(139, 92, 246, 0.35); }
     .cpa-btn:hover { background: #7c3aed; transform: translateY(-1px); }
     footer { text-align: center; color: var(--muted); font-size: 0.8rem; margin-top: 24px; }
+    .legal-links { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 10px; }
+    .legal-links a { color: var(--accent); text-decoration: none; font-size: 0.76rem; cursor: pointer; }
+    .legal-links a:hover { text-decoration: underline; }
+    .legal-details { max-width: 680px; margin: 12px auto 0; text-align: left; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; font-size: 0.76rem; line-height: 1.5; color: var(--muted); display: none; }
+    .legal-details.open { display: block; }
     @media (max-width: 600px) { .grid-2, .results { grid-template-columns: 1fr; } .cpa-btn { width: 100%; text-align: center; } header h1 { font-size: 1.5rem; } }
+
 
   </style>
 </head>
@@ -200,9 +206,21 @@
   </nav>
 
   <footer>
-    <p>Free AI Token & API Cost Estimator · Instant browser-based calculation, no data stored.</p>
-    <p style="margin-top:6px;font-size:0.75rem;">Affiliate Disclosure: Some links on this page are partner referrals. If you sign up or fund an account, we may earn a credit or commission at no extra cost to you.</p>
+    <p>Free AI Token &amp; API Cost Estimator &bull; Instant browser-based calculation &bull; Smart Finance &amp; Tech Calculators</p>
+    <p style="margin-top:6px;font-size:0.75rem;"><strong>FTC Affiliate Disclosure:</strong> Some links on this page (including RunPod) are affiliate referrals. If you sign up or fund an account, we may earn a credit or commission at no extra cost to you.</p>
+    <div class="legal-links">
+      <a onclick="toggleLegal('privacy')">Privacy Policy</a>
+      <a onclick="toggleLegal('disclaimer')">Cost &amp; API Disclaimer</a>
+      <a href="data/llm-pricing.json" target="_blank">Open Pricing JSON (CC-BY-4.0)</a>
+    </div>
+    <div id="legal-privacy" class="legal-details">
+      <strong>Privacy Policy (Updated Nov 2026):</strong> All text and token calculations run 100% locally in your web browser. We do not collect, transmit, or store your prompts, API keys, or personal data on any server. We use privacy-first, cookieless Cloudflare Web Analytics solely to measure aggregate page views and country-level traffic without tracking individual users across sites.
+    </div>
+    <div id="legal-disclaimer" class="legal-details">
+      <strong>Terms &amp; Cost Disclaimer:</strong> Token counts (~4 characters per token) and LLM API pricing figures are estimates for informational and budgeting purposes only. Model providers (OpenAI, Anthropic, Google, DeepSeek) update token rates, caching discounts, and context tiers frequently; always verify exact billing rates in your provider console before production deployment.
+    </div>
   </footer>
+
 
 </div>
 <script>
@@ -312,8 +330,16 @@
     calculate();
   })();
 
-
+  function toggleLegal(type) {
+    ['privacy', 'disclaimer'].forEach(k => {
+      const el = document.getElementById('legal-' + k);
+      if (!el) return;
+      if (k === type) el.classList.toggle('open');
+      else el.classList.remove('open');
+    });
+  }
 </script>
+
 
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c1d700a5fdf540fa94f43b52a8651a2f"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
