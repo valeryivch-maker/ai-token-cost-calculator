@@ -167,8 +167,12 @@
         <strong style="display:block; font-size:0.74rem; text-transform:uppercase; letter-spacing:0.04em; color:#34d399; margin-bottom:2px;">Next Logical Step &rarr;</strong>
         Factor <strong id="next-step-cost" style="color:#34d399;">$87.50</strong>/mo AI expense into your SaaS or Ad campaign net ROI:
       </div>
-      <a href="#" id="next-step-link" target="_blank" rel="noopener" style="background:#34d399; color:#0b1120; text-decoration:none; font-weight:700; font-size:0.84rem; padding:9px 14px; border-radius:8px; white-space:nowrap;">Calculate Net ROI &rarr;</a>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <button type="button" id="share-est-btn" onclick="copyShareLink()" style="background:#0f172a; color:#34d399; border:1px solid rgba(52,211,153,0.45); font-weight:700; font-size:0.82rem; padding:8px 12px; border-radius:8px; cursor:pointer; white-space:nowrap;">&#128279; Copy Estimate Link</button>
+        <a href="#" id="next-step-link" target="_blank" rel="noopener" style="background:#34d399; color:#0b1120; text-decoration:none; font-weight:700; font-size:0.84rem; padding:9px 14px; border-radius:8px; white-space:nowrap;">Calculate Net ROI &rarr;</a>
+      </div>
     </div>
+
 
     <div class="cpa-box">
 
@@ -280,16 +284,34 @@
     rpAffLink.href = ['https:/', '/runpod.io', '?ref=s9wuijkl'].join('');
   }
 
+  function copyShareLink() {
+    const inTok = document.getElementById('in-tokens').value || 1500;
+    const outTok = document.getElementById('out-tokens').value || 500;
+    const req = document.getElementById('req-count').value || 10000;
+    const inPr = document.getElementById('in-price').value || 2.50;
+    const outPr = document.getElementById('out-price').value || 10.00;
+    const url = window.location.origin + window.location.pathname + '?in=' + encodeURIComponent(inTok) + '&out=' + encodeURIComponent(outTok) + '&req=' + encodeURIComponent(req) + '&inPrice=' + encodeURIComponent(inPr) + '&outPrice=' + encodeURIComponent(outPr);
+    navigator.clipboard.writeText(url).then(() => {
+      const btn = document.getElementById('share-est-btn');
+      if (btn) { btn.innerHTML = '&#10003; Link Copied!'; setTimeout(() => { btn.innerHTML = '&#128279; Copy Estimate Link'; }, 1800); }
+    });
+  }
+
   (function initFromUrl() {
     const params = new URLSearchParams(window.location.search);
     const pIn = params.get('in');
     const pOut = params.get('out');
     const pReq = params.get('req');
+    const pInPr = params.get('inPrice');
+    const pOutPr = params.get('outPrice');
     if (pIn && !isNaN(parseFloat(pIn))) document.getElementById('in-tokens').value = parseFloat(pIn);
     if (pOut && !isNaN(parseFloat(pOut))) document.getElementById('out-tokens').value = parseFloat(pOut);
     if (pReq && !isNaN(parseFloat(pReq))) document.getElementById('req-count').value = parseFloat(pReq);
+    if (pInPr && !isNaN(parseFloat(pInPr))) { document.getElementById('in-price').value = parseFloat(pInPr); clearActivePreset(); }
+    if (pOutPr && !isNaN(parseFloat(pOutPr))) { document.getElementById('out-price').value = parseFloat(pOutPr); clearActivePreset(); }
     calculate();
   })();
+
 
 </script>
 
