@@ -1,8 +1,8 @@
-# AI Token & LLM API Cost Calculator (2026)
+﻿# AI Token & LLM API Cost Calculator (2026)
 
 A fast, zero-dependency browser calculator to estimate prompt token counts from raw text and compare monthly API expenses across leading Large Language Models (**GPT-4o**, **GPT-4o mini**, **Claude 3.5 Sonnet**, **Claude 3 Haiku**, **Gemini 1.5 Pro**, and **DeepSeek V3**).
 
-👉 **Live Interactive Tool:** [https://github.io](https://valeryivch-maker.github.io/ai-token-cost-calculator/)
+👉 **Live Interactive Tool:** https://valeryivch-maker.github.io/ai-token-cost-calculator/
 
 ## Key Features
 - **Instant Text-to-Token Estimator:** Paste any system prompt or context block to measure characters, word count, and estimated token volume in real time.
@@ -19,10 +19,9 @@ You can link directly to custom calculation scenarios:
 - `inPrice` / `outPrice` — Custom price per 1M tokens in USD
 
 ## Related Free Calculators
-- [Freelance & Payment Fee Calculator](https://github.io)
-- [Crypto Staking & APY Calculator](https://github.io)
-- [ROAS & Ad ROI Calculator](https://github.io)
-- [Compound Interest & 401(k) Calculator](https://github.io)
-
+- https://valeryivch-maker.github.io/freelance-fee-calculator/
+- https://valeryivch-maker.github.io/crypto-staking-calculator/
+- https://valeryivch-maker.github.io/roas-roi-calculator/
+- https://valeryivch-maker.github.io/compound-interest-calculator/
 ## License
 MIT License — free for personal and commercial use.
